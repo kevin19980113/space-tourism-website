@@ -13,7 +13,11 @@ export default function MainNavigation() {
     <>
       <header className="main-header">
         <figure className="main-header-logo">
-          <NavLink to="/">
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            end
+          >
             <img src={headerLogo} alt="Logo" className="logo" />
           </NavLink>
         </figure>
@@ -21,12 +25,18 @@ export default function MainNavigation() {
         <nav className={`main-navigation ${isMenuOpen ? "show-menu" : ""}`}>
           <ul className="main-navigation-items">
             <li className="main-navigation-item">
-              <NavLink to="/">
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <span className="number">00</span> Home
               </NavLink>
             </li>
             <li className="main-navigation-item">
-              <NavLink to="destination">
+              <NavLink
+                to="destination"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <span className="number">01</span> Destination
               </NavLink>
             </li>
@@ -36,7 +46,10 @@ export default function MainNavigation() {
               </NavLink>
             </li>
             <li className="main-navigation-item">
-              <NavLink to="technology">
+              <NavLink
+                to="technology"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <span className="number">03</span> Technology
               </NavLink>
             </li>

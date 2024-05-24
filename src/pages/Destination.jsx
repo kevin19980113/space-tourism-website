@@ -16,7 +16,7 @@ export default function Destination() {
         <h4>
           <span className="number">01</span> PICK YOUR DESTINATION
         </h4>
-        <figure className="destination-img-wrapper">
+        <figure className="destination-img-wrapper" key={destination.name}>
           <img
             src={destination.images.png}
             alt=""
