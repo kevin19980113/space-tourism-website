@@ -12,7 +12,7 @@ export default function Destination() {
 
   return (
     <main className="destination-main-container">
-      <div className="destination-content">
+      <section className="destination-content">
         <h4>
           <span className="number">01</span> PICK YOUR DESTINATION
         </h4>
@@ -23,9 +23,9 @@ export default function Destination() {
             className="destination-img"
           />
         </figure>
-      </div>
+      </section>
 
-      <div className="pick-destination-wrapper">
+      <section className="pick-destination-wrapper">
         <nav className="destination-navbar">
           <ul className="destination-navbar-items">
             {data.destinations.map((dest) => (
@@ -61,7 +61,7 @@ export default function Destination() {
             </span>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

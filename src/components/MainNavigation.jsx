@@ -1,9 +1,32 @@
 import { NavLink } from "react-router-dom";
 import headerLogo from "../assets/shared/logo.svg";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function MainNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef();
+  const menuBtnRef = useRef();
+
+  useEffect(() => {
+    let handler = (e) => {
+      if (e.target === menuRef.current) {
+        setIsMenuOpen(!isMenuOpen);
+      }
+    };
+
+    document.addEventListener("click", (e) => {
+      if (
+        !menuRef.current.contains(e.target) &&
+        !menuBtnRef.current.contains(e.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    });
+
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  });
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -22,7 +45,10 @@ export default function MainNavigation() {
           </NavLink>
         </figure>
         <div className="devider"></div>
-        <nav className={`main-navigation ${isMenuOpen ? "show-menu" : ""}`}>
+        <nav
+          className={`main-navigation ${isMenuOpen ? "show-menu" : ""}`}
+          ref={menuRef}
+        >
           <ul className="main-navigation-items">
             <li className="main-navigation-item">
               <NavLink
@@ -60,6 +86,7 @@ export default function MainNavigation() {
             isMenuOpen ? "toggleMenu" : ""
           } `}
           onClick={toggleMenu}
+          ref={menuBtnRef}
         ></a>
       </header>
       <div className={`mask ${isMenuOpen ? "show-mask" : ""}`}></div>
