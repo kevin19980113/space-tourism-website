@@ -38,7 +38,7 @@ export default function MainNavigation() {
       <header className={classes["main-header"]}>
         <figure className={classes["main-header-logo"]}>
           <NavLink
-            to="/"
+            to="/space-tourism-website/"
             className={({ isActive }) => (isActive ? classes.active : "")}
             end
           >
@@ -55,8 +55,9 @@ export default function MainNavigation() {
           <ul className={classes["main-navigation-items"]}>
             <li className={classes["main-navigation-item"]}>
               <NavLink
-                to="/"
+                to="/space-tourism-website/"
                 className={({ isActive }) => (isActive ? classes.active : "")}
+                end
               >
                 <span className={classes.number}>00</span> Home
               </NavLink>
