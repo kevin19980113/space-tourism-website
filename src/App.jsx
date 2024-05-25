@@ -8,7 +8,7 @@ import Technology from "./pages/Technology";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "space-tourism-website",
     element: <RootLayout />,
     children: [
       { index: true, element: <Homepage /> },
