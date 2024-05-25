@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import headerLogo from "../assets/shared/logo.svg";
 import { useState, useEffect, useRef } from "react";
+import classes from "./MainNavigation.module.css";
 
 export default function MainNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,62 +35,69 @@ export default function MainNavigation() {
 
   return (
     <>
-      <header className="main-header">
-        <figure className="main-header-logo">
+      <header className={classes["main-header"]}>
+        <figure className={classes["main-header-logo"]}>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "active" : "")}
+            className={({ isActive }) => (isActive ? classes.active : "")}
             end
           >
-            <img src={headerLogo} alt="Logo" className="logo" />
+            <img src={headerLogo} alt="Logo" className={classes.logo} />
           </NavLink>
         </figure>
-        <div className="devider"></div>
+        <div className={classes.devider}></div>
         <nav
-          className={`main-navigation ${isMenuOpen ? "show-menu" : ""}`}
+          className={`${classes["main-navigation"]} ${
+            isMenuOpen ? classes["show-menu"] : ""
+          }`}
           ref={menuRef}
         >
-          <ul className="main-navigation-items">
-            <li className="main-navigation-item">
+          <ul className={classes["main-navigation-items"]}>
+            <li className={classes["main-navigation-item"]}>
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? "active" : "")}
+                className={({ isActive }) => (isActive ? classes.active : "")}
               >
-                <span className="number">00</span> Home
+                <span className={classes.number}>00</span> Home
               </NavLink>
             </li>
-            <li className="main-navigation-item">
+            <li className={classes["main-navigation-item"]}>
               <NavLink
                 to="destination"
-                className={({ isActive }) => (isActive ? "active" : "")}
+                className={({ isActive }) => (isActive ? classes.active : "")}
               >
-                <span className="number">01</span> Destination
+                <span className={classes.number}>01</span> Destination
               </NavLink>
             </li>
-            <li className="main-navigation-item">
-              <NavLink to="crew">
-                <span className="number">02</span> Crew
+            <li className={classes["main-navigation-item"]}>
+              <NavLink
+                to="crew"
+                className={({ isActive }) => (isActive ? classes.active : "")}
+              >
+                <span className={classes.number}>02</span> Crew
               </NavLink>
             </li>
-            <li className="main-navigation-item">
+            <li className={classes["main-navigation-item"]}>
               <NavLink
                 to="technology"
-                className={({ isActive }) => (isActive ? "active" : "")}
+                className={({ isActive }) => (isActive ? classes.active : "")}
               >
-                <span className="number">03</span> Technology
+                <span className={classes.number}>03</span> Technology
               </NavLink>
             </li>
           </ul>
         </nav>
         <a
-          className={`main-header-menu-button ${
-            isMenuOpen ? "toggleMenu" : ""
-          } `}
+          className={`${classes["main-header-menu-button"]} ${
+            isMenuOpen ? classes.toggleMenu : ""
+          }`}
           onClick={toggleMenu}
           ref={menuBtnRef}
         ></a>
       </header>
-      <div className={`mask ${isMenuOpen ? "show-mask" : ""}`}></div>
+      <div
+        className={`${classes.mask} ${isMenuOpen ? classes["show-mask"] : ""}`}
+      ></div>
     </>
   );
 }

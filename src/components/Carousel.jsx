@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useRef } from "react";
+import classes from "../pages/Crew.module.css";
 
 export default function Carousel({ crews }) {
   const [crewIndex, setCrewIndex] = useState(0);
@@ -36,9 +37,9 @@ export default function Carousel({ crews }) {
 
   return (
     <>
-      <div className="crew-info-wrapper">
+      <div className={classes["crew-info-wrapper"]}>
         <div
-          className="crew-info-slider"
+          className={classes["crew-info-slider"]}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -46,33 +47,37 @@ export default function Carousel({ crews }) {
           {crews.map((crew) => (
             <div
               key={crew.name}
-              className="crew-info-item"
+              className={classes["crew-info-item"]}
               style={{
                 transform: `translateX(calc(${
                   -100 * crewIndex
                 }% - ${swipeDistance}px))`,
               }}
             >
-              <h3 className="crew-info-item-role">{crew.role.toUpperCase()}</h3>
-              <h1 className="crew-info-item-name">{crew.name.toUpperCase()}</h1>
-              <p className="crew-info-item-bio">{crew.bio}</p>
+              <h3 className={classes["crew-info-item-role"]}>
+                {crew.role.toUpperCase()}
+              </h3>
+              <h1 className={classes["crew-info-item-name"]}>
+                {crew.name.toUpperCase()}
+              </h1>
+              <p className={classes["crew-info-item-bio"]}>{crew.bio}</p>
             </div>
           ))}
         </div>
-        <div className="carousel-indicators">
+        <div className={classes["carousel-indicators"]}>
           {crews.map((_, index) => (
             <button
               key={index}
               onClick={() => setCrewIndex(index)}
-              className={`carousel-button ${
-                crewIndex === index ? "active-crew" : ""
+              className={`${classes["carousel-button"]} ${
+                crewIndex === index ? classes["active-crew"] : ""
               }`}
             ></button>
           ))}
         </div>
       </div>
       <figure
-        className="crew-img-slider"
+        className={classes["crew-img-slider"]}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -81,7 +86,7 @@ export default function Carousel({ crews }) {
           <img
             src={crew.images.webp}
             alt={crew.name}
-            className="crew-img"
+            className={classes["crew-img"]}
             key={crew.name}
             style={{
               transform: `translateX(calc(${

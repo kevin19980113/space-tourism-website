@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
+import classes from "./HomePage.module.css";
 
 export default function Homepage() {
   return (
-    <main className="homepage-main-container">
-      <section className="homepage-content">
+    <main className={classes["homepage-main-container"]}>
+      <section className={classes["homepage-content"]}>
         <h4>SO, YOU WANT TO TRAVEL TO</h4>
         <h1>SPACE</h1>
         <p>
@@ -13,8 +14,8 @@ export default function Homepage() {
           experience!
         </p>
       </section>
-      <section className="Explore-button-wrapper">
-        <NavLink to="destination" className="Explore-button">
+      <section className={classes["Explore-button-wrapper"]}>
+        <NavLink to="destination" className={classes["Explore-button"]}>
           EXPLORE
         </NavLink>
       </section>

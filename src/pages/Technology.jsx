@@ -1,5 +1,6 @@
 import { data } from "../data.js";
 import { useState } from "react";
+import classes from "./Technology.module.css";
 
 export default function Technology() {
   const [technologyIndex, setTechnologyIndex] = useState(0);
@@ -9,42 +10,46 @@ export default function Technology() {
   }
 
   return (
-    <main className="technology-main-container">
-      <h4 className="technology-title">
-        <span className="number">03</span> SPACE LAUNCH 101
+    <main className={classes["technology-main-container"]}>
+      <h4 className={classes["technology-title"]}>
+        <span className={classes.number}>03</span> SPACE LAUNCH 101
       </h4>
-      <section className="technology-content">
-        <div className="technology-info-wrapper">
-          <div className="technology-step">
+      <section className={classes["technology-content"]}>
+        <div className={classes["technology-info-wrapper"]}>
+          <div className={classes["technology-step"]}>
             <button
-              className={`technology-step-number ${
-                technologyIndex >= 0 ? "step-active " : ""
+              className={`${classes["technology-step-number"]} ${
+                technologyIndex >= 0 ? classes["step-active"] : ""
               }`}
               onClick={() => handleClickStep(0)}
             >
               1
             </button>
-            <div className="step-line">
+            <div className={classes["step-line"]}>
               <div
-                className={`progress-bar ${technologyIndex >= 1 ? "fill" : ""}`}
+                className={`${classes["progress-bar"]} ${
+                  technologyIndex >= 1 ? classes["fill"] : ""
+                }`}
               ></div>
             </div>
             <button
-              className={`technology-step-number ${
-                technologyIndex >= 1 ? "step-active " : ""
+              className={`${classes["technology-step-number"]} ${
+                technologyIndex >= 1 ? classes["step-active"] : ""
               }`}
               onClick={() => handleClickStep(1)}
             >
               2
             </button>
-            <div className="step-line">
+            <div className={classes["step-line"]}>
               <div
-                className={`progress-bar ${technologyIndex >= 2 ? "fill" : ""}`}
+                className={`${classes["progress-bar"]} ${
+                  technologyIndex >= 2 ? classes["fill"] : ""
+                }`}
               ></div>
             </div>
             <button
-              className={`technology-step-number ${
-                technologyIndex === 2 ? "step-active " : ""
+              className={`${classes["technology-step-number"]} ${
+                technologyIndex === 2 ? classes["step-active"] : ""
               }`}
               onClick={() => handleClickStep(2)}
             >
@@ -52,7 +57,7 @@ export default function Technology() {
             </button>
           </div>
           <div
-            className="technology-description"
+            className={classes["technology-description"]}
             key={data.technology[technologyIndex].name}
           >
             <p>THE TECHNOLOGY...</p>
@@ -61,13 +66,13 @@ export default function Technology() {
           </div>
         </div>
         <figure
-          className="technology-img-wrapper"
+          className={classes["technology-img-wrapper"]}
           key={data.technology[technologyIndex].name}
         >
           <img
             src={data.technology[technologyIndex].images.portrait}
             alt={data.technology[technologyIndex].name}
-            className="technology-img"
+            className={classes["technology-img"]}
           />
         </figure>
       </section>

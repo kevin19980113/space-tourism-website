@@ -1,0 +1,177 @@
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 0 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.main-header-logo {
+  background: none;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+.number {
+  margin-right: 0.7rem;
+}
+
+.devider {
+  background-color: #474747;
+  border: none;
+  position: fixed;
+  width: 30%;
+  height: 1px;
+  left: 7rem;
+  z-index: 1;
+}
+
+.main-navigation {
+  width: 65%;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.5rem 1rem 1.5rem 5rem;
+}
+
+.main-navigation-items {
+  display: flex;
+  column-gap: 3rem;
+  font-size: 1.2rem;
+}
+
+.main-navigation-item {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.main-navigation-item a::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.4s ease;
+}
+
+.main-navigation-item a:hover::after,
+.main-navigation-item a.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.selected a::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.main-navigation-item a {
+  transition: all 0.3s ease;
+}
+
+.main-header-menu-button {
+  display: none;
+}
+
+@media screen and(max-width:1240px) {
+  .main-navigation {
+    padding-left: 1rem;
+  }
+  .devider {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .devider {
+    display: none;
+  }
+  .main-header {
+    padding-top: 0;
+  }
+  .main-navigation {
+    width: 90%;
+    padding-left: 3rem;
+  }
+  .main-navigation-items {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-navigation {
+    padding-left: 1rem;
+  }
+  .main-navigation-items {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 678px) {
+  .main-navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    min-height: 100vh;
+    width: 60%;
+    transition: right 0.3s ease;
+    padding: 2rem;
+    z-index: 50;
+  }
+  .main-navigation-items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    margin-top: 5rem;
+    font-size: 1.2rem;
+  }
+  .show-menu {
+    right: 0;
+  }
+  .main-header {
+    padding: 1.5rem;
+  }
+  .main-header-menu-button {
+    display: block;
+    background-image: url(/src/assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(0);
+    transition: 0.3s ease;
+    z-index: 100;
+  }
+  .toggleMenu {
+    background-image: url(/src/assets/shared/icon-close.svg);
+    transform: rotate(180deg);
+    transition: 0.3s ease;
+  }
+  .mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 7;
+  }
+  .show-mask {
+    display: block;
+  }
+}

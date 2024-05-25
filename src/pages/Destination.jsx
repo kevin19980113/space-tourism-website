@@ -1,5 +1,7 @@
 import { data } from "../data.js";
 import { useState } from "react";
+import classes from "./Destination.module.css";
+
 export default function Destination() {
   const [destination, setDestination] = useState(data.destinations[0]);
 
@@ -11,28 +13,31 @@ export default function Destination() {
   }
 
   return (
-    <main className="destination-main-container">
-      <section className="destination-content">
+    <main className={classes["destination-main-container"]}>
+      <section className={classes["destination-content"]}>
         <h4>
-          <span className="number">01</span> PICK YOUR DESTINATION
+          <span className={classes.number}>01</span> PICK YOUR DESTINATION
         </h4>
-        <figure className="destination-img-wrapper" key={destination.name}>
+        <figure
+          className={classes["destination-img-wrapper"]}
+          key={destination.name}
+        >
           <img
             src={destination.images.png}
             alt=""
-            className="destination-img"
+            className={classes["destination-img"]}
           />
         </figure>
       </section>
 
-      <section className="pick-destination-wrapper">
-        <nav className="destination-navbar">
-          <ul className="destination-navbar-items">
+      <section className={classes["pick-destination-wrapper"]}>
+        <nav className={classes["destination-navbar"]}>
+          <ul className={classes["destination-navbar-items"]}>
             {data.destinations.map((dest) => (
               <li
                 key={dest.name}
-                className={`destination-navbar-item ${
-                  dest.name === destination.name ? "selected" : ""
+                className={`${classes["destination-navbar-item"]} ${
+                  dest.name === destination.name ? classes.selected : ""
                 }`}
               >
                 <a onClick={() => selectDestination(dest.name)}>
@@ -45,18 +50,20 @@ export default function Destination() {
         <h1>{destination.name.toUpperCase()}</h1>
         <p>{destination.description}</p>
         <hr />
-        <div className="destination-info">
-          <div className="destination-info-item">
-            <span className="destination-info-item-title">AVG. Distance</span>
-            <span className="destination-info-item-value">
+        <div className={classes["destination-info"]}>
+          <div className={classes["destination-info-item"]}>
+            <span className={classes["destination-info-item-title"]}>
+              AVG. Distance
+            </span>
+            <span className={classes["destination-info-item-value"]}>
               {destination.distance.toUpperCase()}
             </span>
           </div>
-          <div className="destination-info-item">
-            <span className="destination-info-item-title">
+          <div className={classes["destination-info-item"]}>
+            <span className={classes["destination-info-item-title"]}>
               EST. TRAVEL TIME
             </span>
-            <span className="destination-info-item-value">
+            <span className={classes["destination-info-item-value"]}>
               {destination.travel.toUpperCase()}
             </span>
           </div>
