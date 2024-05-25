@@ -154,6 +154,9 @@
   .pick-destination-wrapper h1 {
     font-size: 4rem;
   }
+  .destination-content h4 {
+    margin-bottom: 2rem;
+  }
   .pick-destination-wrapper p {
     font-size: 1.1rem;
     height: 9rem;
