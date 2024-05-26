@@ -176,7 +176,7 @@
   .destination-main-container {
     background-image: url(/src/assets/destination/background-destination-tablet.jpg);
     flex-direction: column;
-    padding: 8rem 4rem;
+    padding: 8rem 3rem;
     align-items: center;
     row-gap: 4rem;
   }

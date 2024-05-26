@@ -19,17 +19,17 @@ export default function Carousel({ crews }) {
   };
 
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      setCrewIndex(crewIndex - 1);
-      if (crewIndex === 0) {
-        setCrewIndex(crews.length - 1);
-      }
-    }
-
-    if (touchStartX.current - touchEndX.current < -50) {
+    if (touchStartX.current - touchEndX.current > 0) {
       setCrewIndex(crewIndex + 1);
       if (crewIndex === crews.length - 1) {
         setCrewIndex(0);
+      }
+    }
+
+    if (touchStartX.current - touchEndX.current < 0) {
+      setCrewIndex(crewIndex - 1);
+      if (crewIndex === 0) {
+        setCrewIndex(crews.length - 1);
       }
     }
     setSwipeDistance(0);
@@ -51,7 +51,7 @@ export default function Carousel({ crews }) {
               style={{
                 transform: `translateX(calc(${
                   -100 * crewIndex
-                }% - ${swipeDistance}px))`,
+                }% + ${swipeDistance}px))`,
               }}
             >
               <h3 className={classes["crew-info-item-role"]}>
@@ -91,7 +91,7 @@ export default function Carousel({ crews }) {
             style={{
               transform: `translateX(calc(${
                 -100 * crewIndex
-              }% - ${swipeDistance}px))`,
+              }% + ${swipeDistance}px))`,
             }}
           ></img>
         ))}

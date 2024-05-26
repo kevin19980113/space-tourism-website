@@ -15,7 +15,10 @@ export default function Homepage() {
         </p>
       </section>
       <section className={classes["Explore-button-wrapper"]}>
-        <NavLink to="destination" className={classes["Explore-button"]}>
+        <NavLink
+          to="/space-tourism-website/destination/"
+          className={classes["Explore-button"]}
+        >
           EXPLORE
         </NavLink>
       </section>

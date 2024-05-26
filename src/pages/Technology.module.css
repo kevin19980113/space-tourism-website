@@ -114,9 +114,6 @@
 }
 
 @media screen and (max-width: 1240px) {
-  .technology-main-container {
-    padding: 8rem 0 0 4rem;
-  }
   .technology-title {
     margin-bottom: 4rem;
   }
@@ -130,6 +127,9 @@
 
 /*tablet */
 @media screen and (max-width: 1024px) {
+  .technology-main-container {
+    padding: 8rem 0 0 3rem;
+  }
   .technology-description h1 {
     font-size: 2rem;
   }
