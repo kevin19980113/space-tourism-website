@@ -8,20 +8,20 @@ import Technology from "./pages/Technology";
 
 const router = createBrowserRouter([
   {
-    path: "space-tourism-website",
+    path: "/space-tourism-website",
     element: <RootLayout />,
     children: [
       { index: true, element: <Homepage /> },
       {
-        path: "destination",
+        path: "/space-tourism-website/destination",
         element: <Destination />,
       },
       {
-        path: "crew",
+        path: "/space-tourism-website/crew",
         element: <Crew />,
       },
       {
-        path: "technology",
+        path: "/space-tourism-website/technology",
         element: <Technology />,
       },
     ],

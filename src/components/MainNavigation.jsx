@@ -64,7 +64,7 @@ export default function MainNavigation() {
             </li>
             <li className={classes["main-navigation-item"]}>
               <NavLink
-                to="destination"
+                to="/space-tourism-website/destination/"
                 className={({ isActive }) => (isActive ? classes.active : "")}
               >
                 <span className={classes.number}>01</span> Destination
@@ -72,7 +72,7 @@ export default function MainNavigation() {
             </li>
             <li className={classes["main-navigation-item"]}>
               <NavLink
-                to="crew"
+                to="/space-tourism-website/crew"
                 className={({ isActive }) => (isActive ? classes.active : "")}
               >
                 <span className={classes.number}>02</span> Crew
@@ -80,7 +80,7 @@ export default function MainNavigation() {
             </li>
             <li className={classes["main-navigation-item"]}>
               <NavLink
-                to="technology"
+                to="/space-tourism-website/technology"
                 className={({ isActive }) => (isActive ? classes.active : "")}
               >
                 <span className={classes.number}>03</span> Technology
