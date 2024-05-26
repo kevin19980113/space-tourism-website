@@ -82,6 +82,11 @@
   transition: all 0.3s ease-in-out;
 }
 
+.Explore-button:hover {
+  font-size: 2.4rem;
+  transition: font-size 0.3s ease;
+}
+
 .Explore-button:hover::after {
   transform: translate(-50%, -50%) scale(1);
   opacity: 0.1;
@@ -139,6 +144,9 @@
     width: 18rem;
     height: 18rem;
   }
+  .Explore-button:hover {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 678px) {
@@ -168,6 +176,10 @@
     height: 9rem;
     font-size: 1.3rem;
   }
+  .Explore-button:hover {
+    font-size: 1.6rem;
+  }
+
   .Explore-button::after {
     width: 15rem;
     height: 15rem;
