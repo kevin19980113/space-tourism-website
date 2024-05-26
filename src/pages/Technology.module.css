@@ -83,7 +83,6 @@
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
-  animation: fade-in 0.4s ease;
 }
 
 .technology-description h1 {
@@ -104,6 +103,9 @@
 
 .technology-img-wrapper {
   width: 40%;
+}
+
+.fade-in {
   animation: fade-in 0.4s ease;
 }
 
@@ -231,17 +233,6 @@
   0% {
     opacity: 0;
     transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateX(-150px);
   }
   100% {
     opacity: 1;

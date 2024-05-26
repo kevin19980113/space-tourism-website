@@ -4,12 +4,15 @@ import classes from "./Destination.module.css";
 
 export default function Destination() {
   const [destination, setDestination] = useState(data.destinations[0]);
+  const [animate, setAnimate] = useState(false);
 
   function selectDestination(newDestination) {
     const selectedDestination = data.destinations.find(
       (dest) => dest.name === newDestination
     );
+    setAnimate(true);
     setDestination(selectedDestination);
+    setTimeout(() => setAnimate(false), 400);
   }
 
   return (
@@ -18,14 +21,13 @@ export default function Destination() {
         <h4>
           <span className={classes.number}>01</span> PICK YOUR DESTINATION
         </h4>
-        <figure
-          className={classes["destination-img-wrapper"]}
-          key={destination.name}
-        >
+        <figure className={classes["destination-img-wrapper"]}>
           <img
             src={destination.images.png}
             alt={destination.name}
-            className={classes["destination-img"]}
+            className={`${classes["destination-img"]} ${
+              animate ? classes["slide-in"] : ""
+            }`}
           />
         </figure>
       </section>

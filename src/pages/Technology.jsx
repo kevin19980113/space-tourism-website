@@ -4,9 +4,12 @@ import classes from "./Technology.module.css";
 
 export default function Technology() {
   const [technologyIndex, setTechnologyIndex] = useState(0);
+  const [animate, setAnimate] = useState(false);
 
   function handleClickStep(stepNumber) {
+    setAnimate(true);
     setTechnologyIndex(stepNumber);
+    setTimeout(() => setAnimate(false), 400);
   }
 
   return (
@@ -57,22 +60,22 @@ export default function Technology() {
             </button>
           </div>
           <div
-            className={classes["technology-description"]}
-            key={data.technology[technologyIndex].name}
+            className={`${classes["technology-description"]} ${
+              animate ? classes["fade-in"] : ""
+            }`}
           >
             <p>THE TECHNOLOGY...</p>
             <h1>{data.technology[technologyIndex].name.toUpperCase()}</h1>
             <p>{data.technology[technologyIndex].description}</p>
           </div>
         </div>
-        <figure
-          className={classes["technology-img-wrapper"]}
-          key={data.technology[technologyIndex].name}
-        >
+        <figure className={classes["technology-img-wrapper"]}>
           <img
             src={data.technology[technologyIndex].images.portrait}
             alt={data.technology[technologyIndex].name}
-            className={classes["technology-img"]}
+            className={`${classes["technology-img"]} ${
+              animate ? classes["fade-in"] : ""
+            }`}
           />
         </figure>
       </section>
