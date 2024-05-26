@@ -24,7 +24,7 @@ export default function Destination() {
         >
           <img
             src={destination.images.png}
-            alt=""
+            alt={destination.name}
             className={classes["destination-img"]}
           />
         </figure>
