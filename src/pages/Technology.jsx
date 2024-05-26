@@ -9,7 +9,7 @@ export default function Technology() {
   function handleClickStep(stepNumber) {
     setAnimate(true);
     setTechnologyIndex(stepNumber);
-    setTimeout(() => setAnimate(false), 400);
+    setTimeout(() => setAnimate(false), 300);
   }
 
   return (

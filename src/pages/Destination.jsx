@@ -12,7 +12,7 @@ export default function Destination() {
     );
     setAnimate(true);
     setDestination(selectedDestination);
-    setTimeout(() => setAnimate(false), 400);
+    setTimeout(() => setAnimate(false), 300);
   }
 
   return (
